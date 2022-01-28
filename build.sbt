@@ -11,3 +11,18 @@ val keycloakDependencies = Seq(
 )
 
 libraryDependencies ++= keycloakDependencies
+
+publishTo := Some(
+  "GitHub <THK-ADV> Apache Maven Packages" at "https://maven.pkg.github.com/THK-ADV/keycloak-validation"
+)
+
+publishConfiguration := publishConfiguration.value.withOverwrite(true)
+
+publishMavenStyle := true
+
+credentials += Credentials(
+  "GitHub Package Registry",
+  "maven.pkg.github.com",
+  "THK-ADV",
+  System.getenv("GITHUB_TOKEN")
+)
